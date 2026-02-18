@@ -3,7 +3,7 @@
   "name": "News adda",
   "version": "1.0",
   "description": "Latest news updates at your fingertips.",
-    "permissions": ["https://newsapi.org/*"]
+    "permissions": ["https://gnews.io/*"]
   ,
   "action": {
     "default_popup": "index.html",
@@ -16,5 +16,6 @@
   
 
 }
+
 
 
