@@ -19,8 +19,7 @@ async function fetchNews(reset = false) {
         newsContainer.innerHTML = "";
     }
 
-   const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&pageSize=10&page=${page}&apiKey=${apiKey})`;
-
+const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=10`;
 
     try {
         const response = await fetch(url);
@@ -94,6 +93,7 @@ loadMoreBtn.addEventListener("click", () => {
     page++;
     fetchNews();
 });
+
 
 
 
