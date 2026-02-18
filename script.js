@@ -10,7 +10,7 @@ const loadMoreBtn = document.getElementById("loadMore");
 loadMoreBtn.style.display = "none";
 
 // Fetch News
-async function fetchNews(reset = false) {
+async function fetchNews(reset = true) {
 
     if (!category) return; // prevent loading without category
 
@@ -94,5 +94,6 @@ loadMoreBtn.addEventListener("click", () => {
     page++;
     fetchNews();
 });
+
 
 
