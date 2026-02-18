@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>News Bytes</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            width: 420px;
+            margin: 0;
+            background: #000000;
+        }
+
+       .navbar {
+    position: relative;
+    padding: 14px;
+    margin: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    border-radius: 10px;
+
+    /* Black background */
+    background: #000;
+
+    /* Rainbow border */
+    border: 3px solid transparent;
+    background-image:
+    linear-gradient(123deg,rgba(10, 12, 128, 0.7), rgba(219, 0, 0, 0.7)),
+    url("https://elements-resized.envatousercontent.com/elements-video-cover-images/b7dae20d-c501-4dff-af25-820f0ab49123/video_preview/video_preview_0000.jpg?w=500&cf_fit=cover&q=85&format=auto&s=3e4944de83c6b2908c73982b5caa7e03450e3fd8aeeb7d5cefb282ae58d2e10e"),
+    linear-gradient(
+        90deg,
+        hsl(0,100%,63%),
+        hsl(90,100%,63%),
+        hsl(210,100%,63%),
+        hsl(195,100%,63%),
+        hsl(270,100%,63%)
+    );
+
+background-size: cover, cover, 300% 300%;
+background-position: center;
+background-origin: border-box;
+background-clip: padding-box, padding-box, border-box;
+
+       }
+@keyframes rainbowMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.navbar::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 12px;
+    background: linear-gradient(
+        90deg,
+        hsl(0,100%,63%),
+        hsl(90,100%,63%),
+        hsl(210,100%,63%),
+        hsl(195,100%,63%),
+        hsl(270,100%,63%)
+    );
+    filter: blur(14px);
+    opacity: 0.8;
+    z-index: -1;
+}
+
+ .categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+}
+
+.category-btn {
+    position: relative;
+    background: #111;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 8px;
+    width: 110px;
+    height: 36px;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.3s ease;
+    z-index: 1;
+}
+
+/* Gradient hover fill */
+.category-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #172ca1, #6d0108);
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    z-index: -1;
+}
+
+/* Bottom gradient border */
+.category-btn::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(
+        90deg,
+        hsl(0,100%,63%),
+        hsl(90,100%,63%),
+        hsl(210,100%,63%),
+        hsl(195,100%,63%),
+        hsl(270,100%,63%)
+    );
+    background-size: 300% 300%;
+    animation: rainbowMove 6s linear infinite;
+}
+
+/* Hover effect */
+.category-btn:hover::before {
+    transform: translateY(0%);
+}
+
+.category-btn:hover {
+    transform: scale(1.05);
+}
+
+.category-btn:active {
+    transform: scale(0.95);
+}
+
+@keyframes rainbowMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+        .news-container {
+            padding: 10px;
+        }
+
+        .card {
+            background: white;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 10px;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .source {
+            font-size: 11px;
+            color: gray;
+            text-align: right;
+        }
+
+        .card-text {
+            font-size: 12px;
+            margin: 6px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 5px 8px;
+            font-size: 11px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .load-more {
+            display: block;
+            margin: 10px auto;
+            padding: 8px 12px;
+            border: none;
+            background: #1106a3;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .load-more:hover {
+            background: #1e7e34;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">News Bytes</div>
+
+    <div class="categories">
+    <button class="category-btn" data-category="general">Home</button>
+    <button class="category-btn" data-category="entertainment">Entertainment</button>
+    <button class="category-btn" data-category="technology">Technology</button>
+    <button class="category-btn" data-category="sports">Sports</button>
+    <button class="category-btn" data-category="business">Business</button>
+    <button class="category-btn" data-category="health">Health</button>
+    <button class="category-btn" data-category="science">Science</button>
+</div>
+
+
+    <div id="newsContainer" class="news-container"></div>
+
+    <button id="loadMore" class="load-more">Load More</button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

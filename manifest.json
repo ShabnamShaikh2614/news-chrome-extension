@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "News adda",
+  "version": "1.0",
+  "description": "Latest news updates at your fingertips.",
+  "permissions": [],
+  "host_permissions": [
+    "https://gnews.io/*"
+  ],
+  "action": {
+    "default_popup": "News.html",
+    "default_icon": "logo.png"
+  },
+
+  "icons": {
+    "128": "logo.png"
+  }
+  
+}
