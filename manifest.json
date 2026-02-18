@@ -3,10 +3,8 @@
   "name": "News adda",
   "version": "1.0",
   "description": "Latest news updates at your fingertips.",
-  "permissions": [],
-  "host_permissions": [
-    "https://newsapi.org/*"
-  ],
+    "permissions": ["https://newsapi.org/*"]
+  ,
   "action": {
     "default_popup": "index.html",
     "default_icon": "logo.png"
@@ -18,4 +16,5 @@
   
 
 }
+
 
