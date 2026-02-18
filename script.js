@@ -19,7 +19,8 @@ async function fetchNews(reset = false) {
         newsContainer.innerHTML = "";
     }
 
-    const url = `https://gnews.io/api/v4/top-headlines?category=${category}&lang=en&country=in&apikey=${apiKey}&page=${page}&max=5`;
+   const url = `/api/news?category=${category}&page=${page}`;
+
 
     try {
         const response = await fetch(url);
@@ -93,4 +94,5 @@ loadMoreBtn.addEventListener("click", () => {
     page++;
     fetchNews();
 });
+
 
