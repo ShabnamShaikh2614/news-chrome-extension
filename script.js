@@ -1,4 +1,4 @@
-const apiKey = "476a13eba1c55fb7214160718c9b953e";
+const apiKey = "74908835270cd3d1585f5696c6492d4c";
 
 let category = "";
 let page = 1;
@@ -19,7 +19,7 @@ async function fetchNews(reset = false) {
         newsContainer.innerHTML = "";
     }
 
-const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=10`;
+const url = `https://gnews.io/v2/top-headlines?country=us&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=10`;
 
     try {
         const response = await fetch(url);
@@ -93,6 +93,7 @@ loadMoreBtn.addEventListener("click", () => {
     page++;
     fetchNews();
 });
+
 
 
 
