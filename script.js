@@ -1,13 +1,18 @@
 const apiKey = "476a13eba1c55fb7214160718c9b953e";
 
-let category = "general";
+let category = "";
 let page = 1;
 
 const newsContainer = document.getElementById("newsContainer");
 const loadMoreBtn = document.getElementById("loadMore");
 
+// Hide load more initially
+loadMoreBtn.style.display = "none";
+
 // Fetch News
 async function fetchNews(reset = false) {
+
+    if (!category) return; // prevent loading without category
 
     if (reset) {
         page = 1;
@@ -18,11 +23,16 @@ async function fetchNews(reset = false) {
 
     try {
         const response = await fetch(url);
-        const data = await response.json();
 
-        console.log("API Response:", data); // Debug
+        if (!response.ok) {
+            throw new Error("API error");
+        }
+
+        const data = await response.json();
+        console.log("API Response:", data);
 
         if (!data.articles || data.articles.length === 0) {
+            newsContainer.innerHTML = "<p style='color:white;text-align:center;'>No news found.</p>";
             loadMoreBtn.style.display = "none";
             return;
         }
@@ -58,7 +68,8 @@ async function fetchNews(reset = false) {
 
     } catch (error) {
         console.error(error);
-        newsContainer.innerHTML = "<p style='color:white;'>Error loading news.</p>";
+        newsContainer.innerHTML = "<p style='color:white;text-align:center;'>Error loading news.</p>";
+        loadMoreBtn.style.display = "none";
     }
 }
 
@@ -75,3 +86,11 @@ loadMoreBtn.addEventListener("click", () => {
     page++;
     fetchNews();
 });
+
+
+// Load More
+loadMoreBtn.addEventListener("click", () => {
+    page++;
+    fetchNews();
+});
+
