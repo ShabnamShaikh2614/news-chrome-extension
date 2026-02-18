@@ -19,7 +19,7 @@ async function fetchNews(reset = false) {
         newsContainer.innerHTML = "";
     }
 
-   const url = `/api/news?category=${category}&page=${page}`;
+   const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&pageSize=10&page=${page}&apiKey=${apiKey})`;
 
 
     try {
