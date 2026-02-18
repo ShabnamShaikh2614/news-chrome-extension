@@ -8,7 +8,7 @@
     "https://gnews.io/*"
   ],
   "action": {
-    "default_popup": "News.html",
+    "default_popup": "index.html",
     "default_icon": "logo.png"
   },
 
@@ -16,4 +16,5 @@
     "128": "logo.png"
   }
   
+
 }
