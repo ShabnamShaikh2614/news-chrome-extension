@@ -5,7 +5,7 @@
   "description": "Latest news updates at your fingertips.",
   "permissions": [],
   "host_permissions": [
-    "https://gnews.io/*"
+    "https://newsapi.org/*"
   ],
   "action": {
     "default_popup": "index.html",
@@ -18,3 +18,4 @@
   
 
 }
+
